@@ -1,89 +1,189 @@
+/* App.css */
 body {
   margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f2f4f8;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f4f8;
+  color: #344054;
 }
 
 .App {
-  text-align: center;
-  padding: 40px;
-  max-width: 800px;
-  margin: 20px auto;
-  background-color: white;
-  border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  
+  max-width: 1000px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 35px 40px;
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgb(100 116 139 / 0.1);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
 
 h1 {
-  color: #0077cc;
-  margin-bottom: 32px;
+  font-size: 2.8rem;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2563eb;
+  user-select: none;
 }
 
-form {
+.container {
   display: flex;
+  gap: 45px;
   flex-wrap: wrap;
-  gap: 16px;
+  justify-content: space-between;
   justify-content: center;
-  margin-bottom: 32px;
 }
 
-form > div {
-  display: flex;
-  flex-direction: column;
-  min-width: 200px;
+/* Left & Right */
+.left,
+.right {
+  background: #f9fafb;
+  padding: 25px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgb(100 116 139 / 0.08);
 }
 
-label {
-  margin-bottom: 6px;
-  font-weight: bold;
-  color: #333;
+.left {
+  flex: 2;
+  min-width: 320px;
 }
 
-input {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border 0.3s, box-shadow 0.3s;
+.right {
+  flex: 1;
+  min-width: 280px;
+  position: relative;
 }
 
-input:focus {
-  border-color: #0077cc;
-  box-shadow: 0 0 6px rgba(0, 119, 204, 0.3);
+/* Search input */
+.searchInput {
+  width: 80%;
+  font-size: 1.1rem;
+  padding: 12px 18px;
+  margin-bottom: 28px;
+  border-radius: 14px;
+  border: 2.5px solid #959595;
+  outline-offset: 3px;
+  outline-color: transparent;
+  transition: border-color 0.3s ease, outline-color 0.3s ease;
+  box-shadow: 0 1px 5px rgba(89, 89, 90, 0.3);
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.searchInput:focus {
+  border-color: #575757;
   outline: none;
+  box-shadow: 0 3px 14px rgba(114, 114, 114, 0.5);
 }
 
-button {
-  padding: 12px 24px;
-  background-color: #0077cc;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s;
+/* Titles */
+h2 {
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-weight: 700;
+  color: #1e40af;
+  user-select: none;
 }
 
-button:hover {
-  background-color: #005fa3;
-}
-
-ul {
+/* Vehicle List */
+.vehicleList,
+.historyList {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
-li {
-  background-color: #f9fafb;
-  margin-bottom: 12px;
-  padding: 16px;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+.vehicleItem,
+.historyItem {
+  background: #fff;
+  border-radius: 14px;
+  padding: 15px 20px;
+  margin-bottom: 18px;
+  box-shadow: 0 6px 15px rgba(37, 99, 235, 0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  font-size: 1.05rem;
+  user-select: none;
+  transition: box-shadow 0.25s ease, background-color 0.3s ease;
+  cursor: default;
+}
+
+.vehicleItem:hover,
+.historyItem:hover {
+  background-color: #e0e7ff;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.18);
+}
+
+/* Button to finalize */
+.btnFinish {
+  background-color: #2563eb;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 14px;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+  transition: background-color 0.3s ease, transform 0.15s ease;
+  user-select: none;
+}
+
+.btnFinish:hover {
+  background-color: #1e40af;
+}
+
+.btnFinish:active {
+  transform: scale(0.95);
+}
+
+/* Button para abrir/fechar histórico */
+.btnToggleHistory {
+  background-color: #3b82f6;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 14px;
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
+  transition: background-color 0.3s ease, transform 0.15s ease;
+  margin-bottom: 18px;
+  user-select: none;
+  width: 100%;
+}
+
+.btnToggleHistory:hover {
+  background-color: #1d4ed8;
+}
+
+.btnToggleHistory:active {
+  transform: scale(0.97);
+}
+
+/* Mensagem de vazio */
+.emptyMessage {
+  color: #6b7280;
+  font-style: italic;
+  font-size: 1.05rem;
+  margin-top: 8px;
+  user-select: none;
+}
+
+/* Responsividade */
+@media (max-width: 860px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left,
+  .right {
+    width: 100%;
+    margin-bottom: 30px;
+  }
 }
