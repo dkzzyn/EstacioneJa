@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './VehicleForm.css'; // ← Importando o CSS
+import './VehicleForm.css';
 
-const VehicleForm = ({ onRegisterVehicle }) => {
+const VehicleForm = ({ onRegisterVehicle, vehicles }) => {
   const [formData, setFormData] = useState({
     plate: '',
     model: '',
@@ -17,6 +17,16 @@ const VehicleForm = ({ onRegisterVehicle }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const alreadyParked = vehicles.some(
+      (vehicle) => vehicle.plate.toLowerCase() === formData.plate.toLowerCase()
+    );
+
+    if (alreadyParked) {
+      alert('Este veículo já está estacionado.');
+      return;
+    }
+
     onRegisterVehicle(formData);
     setFormData({ plate: '', model: '' });
   };

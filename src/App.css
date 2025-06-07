@@ -116,6 +116,7 @@ h2 {
 .historyItem:hover {
   background-color: #e0e7ff;
   box-shadow: 0 10px 25px rgba(37, 99, 235, 0.18);
+  align-items: center;
 }
 
 /* Button to finalize */
@@ -128,9 +129,10 @@ h2 {
   font-weight: 700;
   font-size: 1rem;
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
   transition: background-color 0.3s ease, transform 0.15s ease;
   user-select: none;
+  margin-left: 10px;
 }
 
 .btnFinish:hover {
@@ -174,16 +176,24 @@ h2 {
   margin-top: 8px;
   user-select: none;
 }
+.toggle-history-btn{
+  margin-top: 20px;
+  padding: 12px 28px;
+  background-color: #2563eb;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+  transition: background-color 0.3s ease;
 
-/* Responsividade */
-@media (max-width: 860px) {
-  .container {
-    flex-direction: column;
-  }
-
-  .left,
-  .right {
-    width: 100%;
-    margin-bottom: 30px;
-  }
+}
+.history-modal {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+  height: 100%;            
 }
